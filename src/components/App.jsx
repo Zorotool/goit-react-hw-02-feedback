@@ -1,29 +1,30 @@
-import Profile from './Profile/Profile'
-import user from './Profile/user.json'
-
-import Statistics from './Statistics/Statistics';
-import data from './Statistics/data.json';
-
-import FriendList from './FriendList/FriendList';
-import friends from './FriendList/friends.json';
+import { Component } from 'react';
+import FeedbackOptions from './Feedback';
+import Statistics from './Statistics';
 
 
-import transactions from './TransactionHistory/transactions.json';
-import TransactionHistory from './TransactionHistory/TransactionHistory'
+export class App extends Component {
 
-export const App = () => {
-  return (
-    <div>
-      <Profile
-        username={user.username}
-        tag={user.tag}
-        location={user.location}
-        avatar={user.avatar}
-        stats={user.stats}
-      />
-      <Statistics title="Upload stats" stats={data} />
-      <FriendList friends={friends} />      
-      <TransactionHistory items={transactions} />; 
-    </div>
-  );
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
+
+  render() {
+    return (
+      <>
+      <section title="Please leave feedback">
+          <FeedbackOptions
+          options = {this.state}
+          // onLeaveFeedback={this.handleChange}
+        />
+        </section>
+        
+        <section title="Statistics">
+          <Statistics/>
+        </section>
+</>
+    );
+  };
 };

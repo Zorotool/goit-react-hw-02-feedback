@@ -1,30 +1,26 @@
-import PropTypes from 'prop-types';
-import s from './statistics.module.css';
+// import PropTypes from 'prop-types';
+// import s from './FeedbackOptions.module.css';
 
-const Statistics = ({title, stats}) => {
+const Statistics = () => {
     return (
-        <section className={s.container}>
-            {title && <h2 className={s.title}>{title}</h2>}
-            <ul className={s.statList}>
-                {stats.map(stat => (
-                    <li className={s.statItem} key={stat.id}>
-                        <span>{stat.label}</span>
-                        <span>{stat.percentage}%</span>
-                    </li>))}
+        <>
+            <ul>
+                <li>Good</li>
+                <li>Neutral</li>
+                <li>Bad</li>
             </ul>
-        </section>
-    );
-};
+        </>
+        );
+    }
 
-Statistics.propTypes = {
-  title: PropTypes.string,
-  stats: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      percentage: PropTypes.number.isRequired,
-    }).isRequired
-  ),
-};
+
+// FeedbackOptions.propTypes = {
+// options: PropTypes.shape({
+//     good: PropTypes.number,
+//     neutral: PropTypes.number,
+//     bad: PropTypes.number,
+// }).isRequired,
+//     onLeaveFeedback: PropTypes.func.isRequired,
+// };
 
 export default Statistics
