@@ -16,7 +16,7 @@ class App extends Component {
     const total = Object.values(this.state).reduce((acc, el) => acc + el, 0);
     return total;
   };
-
+  
   countPositiveFeedback = () => {
     const total = this.countTotalFeedback();
     const persantage = Math.round((100 / total) * this.state.good);
@@ -31,6 +31,7 @@ class App extends Component {
 
   render() {
     const { good, neutral, bad } = this.state;
+    const total = this.countTotalFeedback();
     return (
       <Wrapper>
         <Section title="Please leave feedback">
@@ -41,14 +42,14 @@ class App extends Component {
         </Section>
 
         <Section title="Statistic">
-          {this.countTotalFeedback() ? (
+          {total ? (
             <Statistics
               good={good}
               neutral={neutral}
               bad={bad}
-              total={this.countTotalFeedback()}
+              total={total}
               positivePercentage={this.countPositiveFeedback()}
-            ></Statistics>
+            />
           ) : (
             <Notification message="No feedback given" />
           )}
