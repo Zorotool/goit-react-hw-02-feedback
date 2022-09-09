@@ -1,26 +1,23 @@
-// import PropTypes from 'prop-types';
-// import s from './FeedbackOptions.module.css';
 
-const Statistics = () => {
-    return (
-        <>
-            <ul>
-                <li>Good</li>
-                <li>Neutral</li>
-                <li>Bad</li>
-            </ul>
-        </>
-        );
-    }
+import PropTypes from "prop-types";
+import "./Statistics.module.css";
 
+const Statistics = ({ good, neutral, bad, total, positivePercentage }) => (
+  <div>
+    <p>Good: {good}</p>
+    <p>Neutral: {neutral}</p>
+    <p>Bad: {bad}</p>
+    <p>Total: {total}</p>
+    <p>Positive feedback: {positivePercentage}%</p>
+  </div>
+);
 
-// FeedbackOptions.propTypes = {
-// options: PropTypes.shape({
-//     good: PropTypes.number,
-//     neutral: PropTypes.number,
-//     bad: PropTypes.number,
-// }).isRequired,
-//     onLeaveFeedback: PropTypes.func.isRequired,
-// };
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
+};
 
-export default Statistics
+export default Statistics;
